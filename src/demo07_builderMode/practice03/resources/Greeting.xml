@@ -1,0 +1,14 @@
+<letter>
+	<title>Greeting</title>
+	<string>从早到午</string>
+	<items>
+		<item>早上好。</item>
+		<item>下午好</item>
+	</items>
+	<string> 晚上 </string>
+	<items>
+		<item>晚上好。</item>
+		<item>晚安。</item>
+		<item>再见。</item>
+	</items>
+</letter>
