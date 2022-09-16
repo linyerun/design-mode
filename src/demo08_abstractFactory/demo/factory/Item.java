@@ -1,4 +1,4 @@
-package demo08_abstractFactory.factory;
+package demo08_abstractFactory.demo.factory;
 
 public abstract class Item {
 
