@@ -1,0 +1,45 @@
+package demo14_chainOfResponsibility.practice_4;
+
+public abstract class Support {
+
+    private String name;                    // 解决问题的实例的名字
+    private Support next;                   // 要推卸给的对象
+
+    public Support(String name) {           // 生成解决问题的实例
+        this.name = name;
+    }
+
+    public Support setNext(Support next) {  // 设置要推卸给的对象
+        this.next = next;
+        return next;
+    }
+
+    public String toString() {              // 显示字符串
+        return "[" + name + "]";
+    }
+
+    public void support(Trouble trouble) {  // 解决问题的步骤
+        Support curr = this;
+        while (true) {
+            if (curr.resolve(trouble)) {
+                done(trouble);
+                break;
+            } else if (curr.next != null) {
+                curr = curr.next;
+            } else {
+                fail(trouble);
+                break;
+            }
+        }
+    }
+
+    protected void done(Trouble trouble) {  // 解决
+        System.out.println(trouble + " is resolved by " + this + ".");
+    }
+
+    protected void fail(Trouble trouble) {  // 未解决
+        System.out.println(trouble + " cannot be resolved.");
+    }
+
+    protected abstract boolean resolve(Trouble trouble);
+}
